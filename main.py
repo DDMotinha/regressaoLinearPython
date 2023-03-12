@@ -1,6 +1,6 @@
-from __init import operacoesDe2valores
+from __init import operacoes
 import pandas as pd
 
 matrix = pd.read_csv('dataSet.csv', sep=";")
 
-print(operacoesDe2valores.regressaoYResult(matrix,0,'y'))
+print(operacoes.regressaoYResult(matrix,0,'y'))

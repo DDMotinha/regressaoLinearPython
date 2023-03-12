@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-class operacoesDe2valores:
+class operacoes:
       
 
     def soma(k1,k2):
@@ -48,30 +48,30 @@ class operacoesDe2valores:
         nX = len(listaX)
         nY = len(listaY)
         
-        xmedio = operacoesDe2valores.divide(somax1,nX)
-        ymedio = operacoesDe2valores.divide(somay,nY)
+        xmedio = operacoes.divide(somax1,nX)
+        ymedio = operacoes.divide(somay,nY)
 
         somadoprodutodasdiferencasdasmedias = 0.0
 
         for i in listaY:
-            yquadr.append(operacoesDe2valores.quadrado(i))
-            ymenosymedio.append(operacoesDe2valores.subtrai(i,ymedio))
+            yquadr.append(operacoes.quadrado(i))
+            ymenosymedio.append(operacoes.subtrai(i,ymedio))
         
         for i in ymenosymedio:
-            ymenosymedioquadrado.append(operacoesDe2valores.quadrado(i))
+            ymenosymedioquadrado.append(operacoes.quadrado(i))
 
         for i in listaX:
-            x1quadr.append(operacoesDe2valores.quadrado(i))
-            xmenosxmedio.append(operacoesDe2valores.subtrai(i, xmedio))
+            x1quadr.append(operacoes.quadrado(i))
+            xmenosxmedio.append(operacoes.subtrai(i, xmedio))
             
         for i in xmenosxmedio:
-            xmenosxmedioquadrado.append(operacoesDe2valores.quadrado(i))
+            xmenosxmedioquadrado.append(operacoes.quadrado(i))
             
         for i in range(nY):
-            x1Vezesx2.append(operacoesDe2valores.multiplica(listaY[i],listaX[i]))
+            x1Vezesx2.append(operacoes.multiplica(listaY[i],listaX[i]))
 
         for i in range(nY):
-            somadoprodutodasdiferencasdasmedias += operacoesDe2valores.multiplica(xmenosxmedioquadrado[i], ymenosymedioquadrado[i])
+            somadoprodutodasdiferencasdasmedias += operacoes.multiplica(xmenosxmedioquadrado[i], ymenosymedioquadrado[i])
                     
         somax1quadrado = sum(x1quadr)
         somayquadrado = sum(yquadr)
@@ -80,15 +80,15 @@ class operacoesDe2valores:
         somaxmenosxmedioquadrado = sum(xmenosxmedioquadrado)
         somaymenosymedioquadrado = sum(ymenosymedioquadrado)
 
-        coeficienteA = (operacoesDe2valores.multiplica(nY, somamultiplica) - (operacoesDe2valores.multiplica(somax1, somay)))/((operacoesDe2valores.multiplica(nX, somax1quadrado))-operacoesDe2valores.quadrado(somax1))
-        coeficienteB = operacoesDe2valores.subtrai(ymedio, operacoesDe2valores.multiplica(coeficienteA, xmedio))
+        coeficienteA = (operacoes.multiplica(nY, somamultiplica) - (operacoes.multiplica(somax1, somay)))/((operacoes.multiplica(nX, somax1quadrado))-operacoes.quadrado(somax1))
+        coeficienteB = operacoes.subtrai(ymedio, operacoes.multiplica(coeficienteA, xmedio))
         
-        yParelho = operacoesDe2valores.soma(operacoesDe2valores.multiplica(coeficienteA, x1),coeficienteB)
+        yParelho = operacoes.soma(operacoes.multiplica(coeficienteA, x1),coeficienteB)
         
         numerador_correlacao = (nY * somamultiplica - somax1*somay)
         denominador_correlacao = ((nY * somax1quadrado - somax1**2) * (nY*somayquadrado - somay ** 2))**0.5
 
-        correlacao = operacoesDe2valores.divide(numerador_correlacao, denominador_correlacao)
+        correlacao = operacoes.divide(numerador_correlacao, denominador_correlacao)
 
         return {
             "resultante":yParelho,
@@ -97,4 +97,6 @@ class operacoesDe2valores:
             "correlacao": correlacao
         }
 
+
+        
                 
